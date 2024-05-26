@@ -7,13 +7,12 @@ header {
 	position: sticky;
 	top: 0;
 	padding: 10px;
+	z-index: 1;
 }
 
 .logo {
 	color: white;
 	width: 300px;
-}
-.navigation {
 }
 
 .navigation-list {
