@@ -1,0 +1,38 @@
+header {
+	background-color: #304f47;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	position: sticky;
+	top: 0;
+	padding: 10px;
+	z-index: 1;
+}
+
+.logo {
+	color: white;
+	width: 300px;
+}
+
+.navigation-list {
+	display: flex;
+	flex-direction: row;
+	list-style: none;
+}
+
+.navigation-item:not(:first-child) {
+	margin-left: 60px;
+}
+
+.navigation-link {
+	text-decoration: none;
+	color: #ffffff;
+	font-family: "Mulish", sans-serif;
+	font-size: 40px;
+	font-weight: 400;
+}
+
+.navigation-link:hover {
+	text-decoration: underline;
+}
