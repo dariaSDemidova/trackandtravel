@@ -9,6 +9,33 @@
 			rel="stylesheet"
 			href="assets/styles/style.css" />
 		<title>Document</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 	</head>
-	<body></body>
+	<body>
+		<div class="todo">
+			<h2 class="todo__header">Отметь важные планы</h2>
+			<div class="todo__container">
+				<div class="todo__form">
+					<h3 class="todo__country">Мои планы</h3>
+					<div class="todo__inputs">
+						<input type="text" class="todo__task" id="task" name="task">
+						<input type="button" class="todo__button" id="buttonadd" value="Добавить">
+					</div>
+				</div>
+				<div class="todo__taskList">
+					<h2 class="todo__list_attractions">Список достопримечательностей</h2>
+					<div class="todo__tasks" id="tasks">
+						<ul id="ul" class="todo__ul"></ul>
+					</div>
+					<p class="todo__emptyTask">Нет задач</p>
+					<p class="todo__count"></p>
+					<div class="todo__clear">
+						<input type="button" class="todo__button todo__clearButton" id="buttonclear" value="Очистить список задач" disabled>
+					</div>
+				</div>
+			</div>
+		<script src="./scripts/todo.js"></script>
+	</body>
 </html>
