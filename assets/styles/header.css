@@ -36,3 +36,18 @@ header {
 .navigation-link:hover {
 	text-decoration: underline;
 }
+
+.header-bot {
+	color: white;
+	text-decoration: none;
+}
+
+.bot-wrapper {
+	border: 1px solid white;
+	border-radius: 50%;
+	height: 100px;
+	width: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
