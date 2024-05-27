@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="viewport"
-			content="width=device-width, initial-scale=1.0" />
-		<link
-			rel="stylesheet"
-			href="assets/styles/style.css" />
-		<link
-			rel="preconnect"
-			href="https://fonts.googleapis.com" />
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com"
-			crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rubik+Glitch+Pop&display=swap"
-			rel="stylesheet" />
-		<title>Document</title>
-		<link
-			rel="preconnect"
-			href="https://fonts.googleapis.com" />
-		<link
-			rel="preconnect"
-			href="https://fonts.gstatic.com"
-			crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
-			rel="stylesheet" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Track &#38; Travel</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="assets/logo/Logo.svg">
+		<link rel="stylesheet" href="styles/style.css">
 	</head>
 	<body>
 
@@ -36,7 +17,7 @@
 			<img
 				src="assets/logo/Logo-white.svg"
 				alt=""
-				class="logo" />
+				class="logo">
 			<nav class="navigation">
 				<ul class="navigation-list">
 					<li class="navigation-item">
@@ -68,14 +49,14 @@
 
 		<main>
 			<div class="main-image-container">
-				<h1 id="main-header">Исследуй страны вместе с Track & Travel</h1>
+				<h1 id="main-header">Исследуй страны вместе с Track &#38; Travel</h1>
 				<div class="button-container">
 					<button class="btn">начать</button>
 				</div>
 			</div>
 		</main>
 
-		<section class="country">
+		<section class="country" id="popular">
 			<h2 class="country__title">Выбери одно из популярных направлений</h2>
 			<div class="container">
 				<div class="country__card">
@@ -271,14 +252,14 @@
 					</div>
 				</div>
 			</div>
-		<script src="./scripts/todo.js"></script>
+		</div>
 
 		<footer class="footer">
 			<div class="footer__elements">
 				<img
 					class="footer__logo"
 					src="assets/logo/Logo-white.svg"
-					alt="logo" />
+					alt="logo">
 				<div class="footer__nav">
 					<a href="#main-header">Главная</a>
 					<a href="#popular">Страны</a>
@@ -292,7 +273,7 @@
 						<img
 							class="footer__git_img"
 							src="assets/images/gitlogo.png"
-							alt="github" />
+							alt="github">
 					</a>
 				</div>
 				<div class="footer__news">
@@ -300,16 +281,18 @@
 					<input
 						class="footer__news_input"
 						type="email"
-						placeholder="Email" />
+						placeholder="Email">
 					<input
 						class="footer__news_submit"
 						type="submit"
-						value="Подписаться" />
+						value="Подписаться">
 				</div>
 			</div>
 			<p class="footer__copyright">All rights reserved &copy; 2024</p>
 		</footer>
 
-		<script src="popular-countries.js"></script>
+
+		<script src="scripts/countries.js"></script>
+		<script src="./scripts/todo.js"></script>
 	</body>
 </html>
