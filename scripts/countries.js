@@ -1,90 +1,129 @@
-// Находим все кнопки "Узнать больше"
-let buttons = document.querySelectorAll('.country__button');
-
-// Проходимся по каждой кнопке и устанавливаем обработчик события
-buttons.forEach(function(button) {
-    button.onclick = function() {
-        // Находим блок с текстом, который находится перед кнопкой
-        let textBlock = this.previousElementSibling;
-
-        // Проверяем текущую высоту блока с текстом
-        if (textBlock.style.maxHeight === 'none') {
-            // Если блок текста развернут, сжимаем его до 80px
-            textBlock.style.maxHeight = '80px'; 
-            // Добавляем класс 'collapsed', чтобы применить стили для свернутого блока
-            textBlock.classList.add('collapsed'); 
-            // Меняем текст кнопки на "Узнать больше"
-            this.textContent = 'Узнать больше';
-        } else {
-            // Если блок текста свернут, разворачиваем его
-            textBlock.style.maxHeight = 'none'; 
-            // Удаляем класс 'collapsed'
-            textBlock.classList.remove('collapsed'); 
-            // Меняем текст кнопки на "Скрыть"
-            this.textContent = 'Скрыть';
-        }
-    }
-});
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
     let addToFavoritesButtons = document.querySelectorAll('.plus');
     let heartButtons = document.querySelectorAll('.heart');
     let visitedCountriesList = document.querySelector('.visited-countries');
     let emptyMessage = document.querySelector('.empty-message');
     
-    // Функция для обновления состояния сообщения
     function updateEmptyMessage() {
         if (visitedCountriesList.children.length === 0) {
-            emptyMessage.style.display = 'block'; // Показываем сообщение
+            emptyMessage.style.display = 'block';
         } else {
-            emptyMessage.style.display = 'none'; // Скрываем сообщение
+            emptyMessage.style.display = 'none'; 
         }
     }
-    
-    // Проверка состояния при загрузке страницы
-    updateEmptyMessage();
-    
-    // Проходимся по каждой кнопке "добавить в посещенные" и устанавливаем обработчик события
+
+    function saveState() {
+        let countries = [];
+        visitedCountriesList.querySelectorAll('li').forEach(function(item) {
+            countries.push(item.textContent);
+        });
+        localStorage.setItem('visitedCountries', JSON.stringify(countries));
+
+        let likedCountries = [];
+        heartButtons.forEach(function(button) {
+            if (button.classList.contains('active')) {
+                let countryCard = button.parentElement;
+                let countryName = countryCard.querySelector('.country__name').textContent;
+                likedCountries.push(countryName);
+            }
+        });
+        localStorage.setItem('likedCountries', JSON.stringify(likedCountries));
+    }
+
+    function loadState() {
+        let countries = JSON.parse(localStorage.getItem('visitedCountries'));
+        if (countries && countries.length > 0) {
+            countries.forEach(function(countryName) {
+                let visitedCountry = document.createElement('li');
+                visitedCountry.textContent = countryName;
+                visitedCountriesList.appendChild(visitedCountry);
+
+                addToFavoritesButtons.forEach(function(button) {
+                    let countryCard = button.parentElement;
+                    let name = countryCard.querySelector('.country__name').textContent;
+                    if (name === countryName) {
+                        button.classList.add('active');
+                        button.querySelector('.tooltip').textContent = 'Удалить из посещенных стран';
+                    }
+                });
+            });
+        }
+
+        let likedCountries = JSON.parse(localStorage.getItem('likedCountries'));
+        if (likedCountries && likedCountries.length > 0) {
+            heartButtons.forEach(function(button) {
+                let countryCard = button.parentElement;
+                let countryName = countryCard.querySelector('.country__name').textContent;
+                if (likedCountries.includes(countryName)) {
+                    button.classList.add('active');
+                    button.querySelector('.tooltip').textContent = 'Мне не нравится';
+                }
+            });
+        }
+        
+        updateEmptyMessage();
+    }
+
+    loadState();
+
     addToFavoritesButtons.forEach(function(button) {
         button.onclick = function() {
-            // Получаем родительский элемент кнопки
             let countryCard = this.parentElement;
-            // Получаем название страны
             let countryName = countryCard.querySelector('.country__name').textContent;
-            
-            // Проверяем, была ли уже добавлена эта страна
+
             let visitedCountryItems = visitedCountriesList.querySelectorAll('li');
             let countryAlreadyVisited = false;
-            
+
             visitedCountryItems.forEach(function(item) {
                 if (item.textContent === countryName) {
                     countryAlreadyVisited = true;
-                    // Если страна уже посещена, удаляем её из списка и выходим из цикла
                     visitedCountriesList.removeChild(item);
-                    button.classList.remove('active'); // Удаляем класс 'active'
+                    button.classList.remove('active');
+                    button.querySelector('.tooltip').textContent = 'Добавить в посещенные страны';
                     return;
                 }
             });
-            
-            // Если страна еще не посещена, добавляем её в список
+
             if (!countryAlreadyVisited) {
                 let visitedCountry = document.createElement('li');
                 visitedCountry.textContent = countryName;
                 visitedCountriesList.appendChild(visitedCountry);
-                button.classList.add('active'); // Добавляем класс 'active'
+                button.classList.add('active');
+                button.querySelector('.tooltip').textContent = 'Удалить из посещенных стран';
             }
             
-            // Обновляем состояние сообщения
             updateEmptyMessage();
+            saveState();
         }
     });
 
-    // Проходимся по каждой кнопке "нравится" и устанавливаем обработчик события
     heartButtons.forEach(function(button) {
         button.onclick = function() {
-            button.classList.toggle('active'); // Переключаем класс 'active'
+            button.classList.toggle('active');
+            if (button.classList.contains('active')) {
+                button.querySelector('.tooltip').textContent = 'Мне не нравится';
+            } else {
+                button.querySelector('.tooltip').textContent = 'Мне нравится';
+            }
+            saveState();
+        }
+    });
+
+    let buttons = document.querySelectorAll('.country__button');
+
+    buttons.forEach(function(button) {
+        button.onclick = function() {
+            let textBlock = this.previousElementSibling;
+
+            if (textBlock.style.maxHeight === 'none') {
+                textBlock.style.maxHeight = '80px';
+                textBlock.classList.add('collapsed');
+                this.textContent = 'Узнать больше';
+            } else {
+                textBlock.style.maxHeight = 'none';
+                textBlock.classList.remove('collapsed');
+                this.textContent = 'Скрыть';
+            }
         }
     });
 });
