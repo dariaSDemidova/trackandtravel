@@ -31,6 +31,7 @@
 			rel="stylesheet" />
 	</head>
 	<body>
+
 		<header>
 			<img
 				src="assets/logo/Logo-white.svg"
@@ -64,6 +65,7 @@
 			<div class="bot-wrapper">
 			<a href="https://t.me/Track_Travel_bot" class="header-bot">Наш бот</a></div>
 		</header>
+
 		<main>
 			<div class="main-image-container">
 				<h1 id="main-header">Исследуй страны вместе с Track & Travel</h1>
@@ -71,18 +73,16 @@
 					<button class="btn">начать</button>
 				</div>
 			</div>
+		</main>
 
-			<h2
-				class="country__title"
-				id="popular">
-				Выбери одно из популярных направлений
-			</h2>
+		<section class="country">
+			<h2 class="country__title">Выбери одно из популярных направлений</h2>
 			<div class="container">
 				<div class="country__card">
 					<img
 						src="assets/images/emirates.jpg"
 						alt="emirates"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">ОАЭ</div>
 					<div class="country__description">
 						Страна объединяет семь эмиратов. Самый большой из них — Абу-Даби,
@@ -94,13 +94,18 @@
 						виллами.
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 				</div>
 				<div class="country__card">
 					<img
 						src="assets/images/turkey.jpg"
 						alt="turkey"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">Турция</div>
 					<div class="country__description">
 						Турция привлекает туристов со всего мира не только теплыми морями,
@@ -114,13 +119,18 @@
 						утешает и успокаивает.
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 				</div>
 				<div class="country__card">
 					<img
 						src="assets/images/egypt.jpg"
 						alt="egypt"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">Египет</div>
 					<div class="country__description">
 						Египет щедро одарён природой и историей. Эта страна обладает одним
@@ -134,13 +144,18 @@
 						пляжным отдыхом в популярном формате «всё включено».
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 				</div>
 				<div class="country__card">
 					<img
 						src="assets/images/france.jpg"
 						alt="france"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">Франция</div>
 					<div class="country__description">
 						Самая посещаемая страна в мире на протяжении многих лет. Для
@@ -158,13 +173,18 @@
 						графом Монте-Кристо, знакома большинству путешественников с детства.
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 				</div>
 				<div class="country__card">
 					<img
 						src="assets/images/india.jpeg"
 						alt="india"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">Индия</div>
 					<div class="country__description">
 						Индия — одно из самых удивительных государств Южной Азии. Колыбель
@@ -186,13 +206,18 @@
 						в современную реальность.
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 				</div>
 				<div class="country__card">
 					<img
 						src="assets/images/japan.jpg"
 						alt="japan"
-						class="country__img" />
+						class="country__img">
 					<div class="country__name">Япония</div>
 					<div class="country__description">
 						Япония – это удивительная страна, полная контрастов, противоречий.
@@ -200,24 +225,30 @@
 						традиций, природа дарит умиротворение, спокойствие. Сюда чаще едут
 						уже опытные путешественники, посетившие до того не одну страну.
 						Бюджетный отдых и Страна восходящего солнца – это несовместимые
-						понятия. Здесь отсутствует понятие «низкий сезон», цены всегда
+						понятия. Здесь отсутствует понятие «низкий сезон», цены всегда
 						высокие, но все, кто побывал в этой стране, однозначно говорят, что
 						поехать сюда стоит. Достопримечательности Японии удивят
-						даже искушённого туриста. Здесь есть на что посмотреть и в первый
+						даже искушённого туриста. Здесь есть на что посмотреть и в первый
 						приезд, и в следующие визиты, потому что охватить всё практически
 						невозможно.
 					</div>
 					<button class="country__button">Узнать больше</button>
-					<button class="heart">&#9825;</button>
-				</div>
+					<button class="heart">&#9825;
+						<span class="tooltip">Мне нравится</span>
+					</button>
+					<button class="plus">&#43;
+						<span class="tooltip">Добавить в посещенные страны</span>
+					</button> 
 			</div>
+			</div>
+		</section>
 
-			<h2
-				class="country__title"
-				id="visited">
-				Посещенные страны
-			</h2>
+		<section>
+			<h2 class="country__title" id="visited">Посещенные страны</h2>
+			<div class="empty-message">Список посещенных стран пока пуст</div>
 			<ul class="visited-countries"></ul>
+		</section>
+
       	<div class="todo">
 			<h2 class="todo__header" id="planer">Отметь важные планы</h2>
 			<div class="todo__container">
@@ -241,7 +272,7 @@
 				</div>
 			</div>
 		<script src="./scripts/todo.js"></script>
-		</main>
+
 		<footer class="footer">
 			<div class="footer__elements">
 				<img
@@ -278,6 +309,7 @@
 			</div>
 			<p class="footer__copyright">All rights reserved &copy; 2024</p>
 		</footer>
+
 		<script src="popular-countries.js"></script>
 	</body>
 </html>
