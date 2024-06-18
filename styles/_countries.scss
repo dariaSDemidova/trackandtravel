@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.country {
+    &__title {
+        margin-top: 125px;
+        font-family: "Lora", sans-serif;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+
+        @media (max-width: 767px) {
+            font-size: 43px;
+        }
+        @media (max-width: 575px) {
+            font-size: 38px;
+        }
+    }
+    
+    &__container {
+        margin:  93px 91px 105px 72px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 17px;
+
+        @media (max-width: 575px) {
+            margin: 0 auto;
+        }
+    }
+    
+    &__card {
+        margin: 0 auto;
+        width: 350px;
+        height: auto;
+        border: 1px solid #E1E1E1;
+
+        @media (max-width: 575px) {
+            width: 330px;
+        }
+    }
+    
+    &__img {
+        height: 310px;
+        width: 350px;
+        
+        @media (max-width: 575px) {
+            width: 330px;
+        }
+    }
+    
+    &__name {
+        padding-top: 32px;
+        margin-left: 14px;
+        font-family: "Lora", sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        color: #11142D;
+    }
+    
+    &__description {
+        padding-top: 13px;
+        margin-left: 14px;
+        margin-right: 80px;
+        font-family: "Lora", sans-serif;
+        font-size: 16px;
+        max-height: 75px; 
+        overflow: hidden;
+    }
+    
+    &__button {
+        margin-top: 12px;
+        margin-bottom: 32px;
+        margin-left: 14px;
+        height: 56px;
+        width: 130px;
+        border-radius: 8px;
+        border: none;
+        background-color: $brown-color;
+        color: $white-color;
+        font-family: "Lora", sans-serif;
+        font-size: 16px;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.heart {
+    font-size: 30px;
+    color: $brown-color;
+    cursor: pointer;
+    transition: color 0.3s ease; 
+    margin-left: 100px;
+    background: none;
+    border: none;
+    position: relative;
+    
+    &:hover {
+        color: red;
+    }
+
+    &.active {
+        color: red;
+    }
+
+    .tooltip {
+        visibility: hidden;
+        font-family: "Lora", sans-serif;
+        font-size: 16px;
+        color: $green-color;
+        background-color: $white-color;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%; 
+        left: 50%;
+        margin-left: -60px; 
+        width: 100px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    &:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.plus {
+    font-size: 40px;
+    color: $brown-color;
+    cursor: pointer;
+    transition: color 0.3s ease; 
+    margin-left: 10px;
+    background: none;
+    border: none;
+    position: relative;
+
+    &:hover {
+        color: red;
+    }
+
+    &.active {
+        color: red;
+    }
+
+    .tooltip {
+        visibility: hidden;
+        font-family: "Lora", sans-serif;
+        font-size: 16px;
+        color: $green-color;
+        background-color: $white-color;
+        text-align: center;
+        border-radius: 10px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%; 
+        left: 50%;
+        margin-left: -60px; 
+        width: 100px;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    &:hover .tooltip {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+
+
+
+.empty-message {
+    font-family: "Lora", sans-serif;
+    font-size: 24px;
+    color: $green-color;
+    display: none; 
+    text-align: center;
+    margin-top: 90px;
+}
+
+.visited-countries {
+    margin-left: 100px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+    font-family: "Lora", sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: #11142D;
+    list-style-type: none;
+
+    li {
+        padding-bottom: 20px;
+        position: relative;
+        display: flex; 
+        align-items: center;
+    
+        &:before {
+            content: ''; 
+            width: 24px; 
+            height: 24px; 
+            background-color: $brown-color; 
+            border-radius: 50%; 
+            margin-right: 16px; 
+        }
+
+        &:last-child {
+            padding-bottom: 0; 
+        }
+    }
+}

@@ -9,56 +9,36 @@
 		<link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Rubik+Glitch+Pop&display=swap" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" href="assets/logo/Logo.svg">
-		<link rel="stylesheet" href="styles/style.css">
+		<link rel="stylesheet" href="css/style.min.css">
 	</head>
 	<body>
 
 		<header>
-			<img
-				src="assets/logo/Logo-white.svg"
-				alt=""
-				class="logo">
-			<nav class="navigation">
-				<ul class="navigation-list">
-					<li class="navigation-item">
-						<a
-							class="navigation-link"
-							href="#main-header"
-							>Главная</a
-						>
-					</li>
-					<li class="navigation-item">
-						<a
-							class="navigation-link"
-							href="#popular"
-							>Популярное</a
-						>
-					</li>
-					<li class="navigation-item">
-						<a
-							class="navigation-link"
-							href="#planer"
-							>Мои планы</a
-						>
-					</li>
-				</ul>
-			</nav>
-			<div class="bot-wrapper">
-			<a href="https://t.me/Track_Travel_bot" class="header-bot">Наш бот</a></div>
+			<div class="container">
+				<img src="assets/logo/Logo-white.svg" alt="logo" class="logo">
+				<nav>
+					<ul class="menu">
+						<li class="menu__item"><a href="#main" class="menu__link">Главная</a></li>
+						<li class="menu__item"><a href="#country" class="menu__link">Страны</a></li>
+						<li class="menu__item"><a href="#visited" class="menu__link">Мои путешествия</a></li>
+						<li class="menu__item"><a href="#plans" class="menu__link">Планер</a></li>
+					</ul>
+				</nav>
+			</div>
 		</header>
 
 		<main>
-			<div class="main-image-container">
-				<h1 id="main-header">Исследуй страны вместе с Track &#38; Travel</h1>
-				<div class="button-container">
-					<button class="btn">начать</button>
+			<div class="main" id="main">
+				<div class="main__container">
+				<h1 class="main__title">Исследуй страны вместе с Track &#38; Travel</h1>
+					<button class="main__button"><a href="#country">Начать</a></button>
 				</div>
 			</div>
 		</main>
 
-		<section class="country" id="popular">
+		<section class="country" id="country">
 			<h2 class="country__title">Выбери одно из популярных направлений</h2>
-			<div class="container">
+			<div class="country__container">
 				<div class="country__card">
 					<img
 						src="assets/images/emirates.jpg"
@@ -230,7 +210,7 @@
 			<ul class="visited-countries"></ul>
 		</section>
 
-      	<div class="todo">
+		<div class="todo">
 			<h2 class="todo__header" id="planer">Отметь важные планы</h2>
 			<div class="todo__container">
 				<div class="todo__form">
@@ -245,14 +225,16 @@
 					<div class="todo__tasks" id="tasks">
 						<ul id="ul" class="todo__ul"></ul>
 					</div>
-					<p class="todo__emptyTask">Нет задач</p>
+					<p class="todo__emptyTask">Список пуст</p>
 					<p class="todo__count"></p>
 					<div class="todo__clear">
-						<input type="button" class="todo__button todo__clearButton" id="buttonclear" value="Очистить список задач" disabled>
+						<input type="button" class="todo__button todo__clearButton" id="buttonclear" value="Очистить список" disabled>
 					</div>
 				</div>
 			</div>
 		</div>
+
+		
 
 		<footer class="footer">
 			<div class="footer__elements">
@@ -261,20 +243,10 @@
 					src="assets/logo/Logo-white.svg"
 					alt="logo">
 				<div class="footer__nav">
-					<a href="#main-header">Главная</a>
-					<a href="#popular">Страны</a>
+					<a href="#main">Главная</a>
+					<a href="#country">Страны</a>
 					<a href="#visited">Мои путешествия</a>
-					<a href="#todo">Планер</a>
-				</div>
-				<div class="footer__links">
-					<a
-						href="https://github.com/Taarde/trackandtravel"
-						target="_blank">
-						<img
-							class="footer__git_img"
-							src="assets/images/gitlogo.png"
-							alt="github">
-					</a>
+					<a href="#plans">Планер</a>
 				</div>
 				<div class="footer__news">
 					<p>Подпишитесь на наши обновления</p>
@@ -289,10 +261,11 @@
 				</div>
 			</div>
 			<p class="footer__copyright">All rights reserved &copy; 2024</p>
-		</footer>
+		</footer> 
 
 
 		<script src="scripts/countries.js"></script>
-		<script src="./scripts/todo.js"></script>
+		<script src="./scripts/plans.js"></script>
+		<script src="./scripts/burger-menu.js"></script>
 	</body>
 </html>
